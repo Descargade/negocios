@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "2bleA Radar"
+description = "Aplicación privada de uso personal para Aaron Gonzalez de 2bleA, orientada a buscar, evaluar y gestionar prospectos de negocios argentinos mediante un circuito completo de revisión, contacto y seguimiento."
+version = "1.0.0"
+id = "artifacts/2blea-radar"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19951
+
+[services.development]
+run = "pnpm --filter @workspace/2blea-radar run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/2blea-radar", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/2blea-radar/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19951"
+BASE_PATH = "/"
