@@ -1,45 +1,12 @@
-# [Project name]
+# 2bleA Radar
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+CRM privado de Aaron de 2bleA. El frontend es React/Vite; API Express; PostgreSQL en producción y SQLite persistente solo local. Leer README.md para configuración, pruebas y límites comprobados.
 
-## Run & Operate
-
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
-
-## Stack
-
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
-
-## Where things live
-
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
-
-## Architecture decisions
-
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
-
-## Product
-
-_Describe the high-level user-facing capabilities of this app once they exist._
-
-## User preferences
-
-_Populate as you build — explicit user instructions worth remembering across sessions._
-
-## Gotchas
-
-_Populate as you build — sharp edges, "always run X before Y" rules._
-
-## Pointers
-
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- Instalar con pnpm; Node 24.
+- `pnpm run build:radar` compila frontend y backend.
+- `pnpm start` sirve ambos bajo el mismo origen y carga `.env` si existe.
+- `pnpm run typecheck`, `pnpm test`, `pnpm run test:ui` verifican el circuito.
+- No inventar prospectos ni métricas. Búsqueda asistida y plantillas identificadas, sin IA.
+- No contratar servicios, activar APIs pagas ni publicar contactos sin autorización.
+- Mantener la autenticación: no hay contraseña predeterminada ni modo público de datos.
+- No modificar ni borrar bases existentes para probar. Los tests tienen bases efímeras propias.
