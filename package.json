@@ -6,7 +6,11 @@
     "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
     "build": "pnpm run typecheck && pnpm -r --if-present run build",
     "typecheck:libs": "tsc --build",
-    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
+    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck",
+    "build:radar": "pnpm --filter @workspace/2blea-radar build && pnpm --filter @workspace/api-server build",
+    "test": "node --test tests/*.test.mjs",
+    "start": "node --env-file-if-exists=.env artifacts/api-server/dist/index.mjs",
+    "test:ui": "node scripts/test-ui.mjs"
   },
   "private": true,
   "dependencies": {
@@ -15,5 +19,9 @@
   "devDependencies": {
     "prettier": "^3.9.6",
     "typescript": "~5.9.3"
-  }
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "packageManager": "pnpm@11.19.0"
 }

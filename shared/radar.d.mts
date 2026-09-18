@@ -1,0 +1,31 @@
+export const stages: string[];
+export const sectors: string[];
+export const webStates: string[];
+export const reviews: string[];
+export const messageTypes: string[];
+export const criteria: [string, string, number][];
+export const csvFields: string[];
+export const defaultSettings: any;
+export function initialState(): any;
+export function argentinaToday(date?: Date): string;
+export function money(cents: number): string;
+export function normal(s?: string): string;
+export function domain(s?: string): string;
+export function phoneKey(s?: string): string;
+export function duplicates(p: any, all: any[]): any[];
+export function score(p: any): {
+  value: number;
+  insufficient: boolean;
+  breakdown: {
+    key: string;
+    label: string;
+    weight: number;
+    points: number;
+    known: boolean;
+  }[];
+};
+export function renderMessage(p: any, settings: any, type: string): string;
+export function csvSafe(value: any): string;
+export function exportCSV(prospects: any[]): string;
+export function parseCSV(text: string): any[];
+export function csvToProspect(v: any): any;

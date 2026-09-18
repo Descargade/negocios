@@ -54,3 +54,13 @@ dist/
 .vercel/
 .env
 .env.*
+
+# Private application data and test artifacts
+data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+tests/output/
+!.env.example
+
+.test-output/
